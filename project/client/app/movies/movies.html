@@ -1,0 +1,86 @@
+
+
+<div class="container-fluid">
+
+
+	<div class="row">
+		<div class="col-lg-8">
+			<form>
+
+				<input type="text" placeholder="Movie Name" value="" class="form-control" ng-model="moviesCtrl.MovieName"/><br>
+					<input type="text" placeholder="Movie Year" value="" class="form-control" ng-model="moviesCtrl.MovieYear"/><br>
+					<button type="button" class="btn btn-primary" ng-click="moviesCtrl.SearchMovie()"> SearchMovie</button>
+
+			</form>
+		</div>
+	</div><br/>
+
+<div class="row">
+	<div class="col-lg-10">
+
+		<table class="table table-default">
+			<thead>
+				<tr>
+
+					<th>Poster</th>
+					<th>Title</th>
+					<th>Year</th>
+					<th>Genre</th>
+					<th>StarCast</th>
+				
+					<th>Duration</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<img width="203" height="285" src="{{moviesCtrl.MovieDetails.cov}}">
+					</td>
+					<td>{{moviesCtrl.MovieDetails.title}}</td>
+					<td>{{moviesCtrl.MovieDetails.year}}</td>
+					<td>{{moviesCtrl.MovieDetails.gen}}</td>
+					<td>{{moviesCtrl.MovieDetails.cast}}</td>
+					
+					<td>{{moviesCtrl.MovieDetails.dur}}</td>
+					<td><button type="button" class="btn btn-success" ng-click="moviesCtrl.addMovie()">Add Data</button></td>
+					<td><button type="submit" class="btn btn-danger" ng-click="moviesCtrl.deleteMovie(movie)">Cancel</button></td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+			<table class="table table-default table-hover">
+        <h3 style="text-align: center;">Added Data</h3>
+				<thead>
+				<tr>
+					<th>Title</th>
+					
+					<th>Genre</th>
+
+
+					<th>Year</th>
+					<th>Duration</th>
+				</tr>
+			</thead>
+			<tbody>
+      <tr ng-repeat="movie in moviesCtrl.MovieData">
+        <td>{{movie.Title}}</td>
+				
+				<td>{{movie.Genre}}</td>
+
+				<td>{{movie.Year}}</td>
+				<td>{{movie.Duration}}</td>
+				<td><button type="submit" class="btn btn-danger" ng-click="moviesCtrl.remove(movie)"><span class=" glyphicon glyphicon-trash"></span></button></td>
+			</td>
+      </tr>
+		</tbody>
+    </table>
+    </div>
+		</div>
+
+
+</div>
